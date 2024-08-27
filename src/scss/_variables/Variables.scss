@@ -1,0 +1,16 @@
+// Colors
+$brandGrey: rgb(128, 128, 128);
+$brandBlack: rgb(26, 23, 23);
+$brandWhite: rgb(232, 232, 232);
+$brandRed: rgb(226, 51, 45);
+
+//func
+@mixin buttonStyle($color, $fontsize) {
+    width: 200px;
+    height: 40px;
+    background-color: $brandRed;
+    border: none;
+    border-radius: 8px;
+    color: $color;
+    font-size: $fontsize;
+}
