@@ -1,3 +1,6 @@
+// _reset.scss
+
+// Basic Reset
 *,
 *::before,
 *::after {
@@ -6,6 +9,7 @@
   padding: 0;
 }
 
+// HTML5 display accessibly
 article,
 aside,
 details,
@@ -26,40 +30,47 @@ h1, h2, h3, h4 {
   padding: 0;
 }
 
+// Remove list styles on ul, ol elements with a class
 ul,
 ol {
   list-style: none;
 }
 
+// Remove quotes from quotes
 blockquote,
 q {
   quotes: none;
 }
 
+// Allow a more natural flow of content
 blockquote,
 p {
   margin: 0;
 }
 
+// Set core body defaults
 body {
   line-height: 1.5;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
+// Apply a background color and text color
 html {
   background-color: #f9fafb;
   color: #374151;
 }
 
+// Set default link styles
 a {
   color: inherit;
   text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
+// Set default button styles
 button {
   padding: 0;
   font-family: inherit;
@@ -70,6 +81,7 @@ button {
   cursor: pointer;
 }
 
+// Set default input styles
 input,
 textarea,
 select {
@@ -77,83 +89,37 @@ select {
   font-size: inherit;
 }
 
+// Set default table styles
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-.m-0 {
-  margin: 0 !important;
-}
+// Utility Classes
+.m-0 { margin: 0 !important; }
+.m-1 { margin: 0.25rem !important; }
+.m-2 { margin: 0.5rem !important; }
+.m-4 { margin: 1rem !important; }
+.m-8 { margin: 2rem !important; }
 
-.m-1 {
-  margin: 0.25rem !important;
-}
+.p-0 { padding: 0 !important; }
+.p-1 { padding: 0.25rem !important; }
+.p-2 { padding: 0.5rem !important; }
+.p-4 { padding: 1rem !important; }
+.p-8 { padding: 2rem !important; }
 
-.m-2 {
-  margin: 0.5rem !important;
-}
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
 
-.m-4 {
-  margin: 1rem !important;
-}
-
-.m-8 {
-  margin: 2rem !important;
-}
-
-.p-0 {
-  padding: 0 !important;
-}
-
-.p-1 {
-  padding: 0.25rem !important;
-}
-
-.p-2 {
-  padding: 0.5rem !important;
-}
-
-.p-4 {
-  padding: 1rem !important;
-}
-
-.p-8 {
-  padding: 2rem !important;
-}
-
-.text-center {
-  text-align: center !important;
-}
-
-.text-left {
-  text-align: left !important;
-}
-
-.text-right {
-  text-align: right !important;
-}
-
-.bg-gray-100 {
-  background-color: #f9fafb !important;
-}
-
-.bg-gray-200 {
-  background-color: #edf2f7 !important;
-}
-
-.text-gray-800 {
-  color: #374151 !important;
-}
-
-.text-gray-600 {
-  color: #4b5563 !important;
-}
+.bg-gray-100 { background-color: #f9fafb !important; }
+.bg-gray-200 { background-color: #edf2f7 !important; }
+.text-gray-800 { color: #374151 !important; }
+.text-gray-600 { color: #4b5563 !important; }
 
 .border {
   border: 1px solid #313437;
 }
-
 .shadow {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -188,4 +154,4 @@ table {
 
 .shadow-none {
   box-shadow: none;
-}/*# sourceMappingURL=index.css.map */
+}

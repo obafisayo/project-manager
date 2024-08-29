@@ -1,0 +1,114 @@
+// Importing variables
+@import "../../base/_variables/variables";
+
+@mixin buttonStyle($color, $fontsize) {
+    width: 200px;
+    height: 40px;
+    background-color: $brand-red;
+    border: none;
+    border-radius: 8px;
+    color: $color;
+    font-size: $fontsize;
+}
+
+// @mixin border($color: black, $px: 1px) {
+//     border: $px solid $color;
+// }
+
+// Max widths
+@mixin max-sm {
+    @media (max-width: 640px) {
+        @content;
+    }
+}
+
+@mixin max-md {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin max-lg {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin max-xl {
+    @media (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin max-xxl {
+    @media (max-width: 1536px) {
+        @content;
+    }
+}
+
+// Min widths
+@mixin sm {
+    @media (min-width: 640px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: 1536px) {
+        @content;
+    }
+}
+
+// Container mixin
+@mixin container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    box-sizing: border-box;
+
+    @include sm {
+        max-width: 640px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    @include md {
+        max-width: 768px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    @include lg {
+        max-width: 1024px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    @include xl {
+        max-width: 1280px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    @include xxl {
+        max-width: 1536px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}

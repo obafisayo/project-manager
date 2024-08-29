@@ -1,21 +1,19 @@
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom';
-import { ABOUT, ACCOUNT, CONTACT, DASHBOARD, FORGOT_PASSWORD, HOME, PROJECTS, SIGNIN, SIGNUP, SIGNUP_OTP, TASKS } from './RouteConstants';
+import { ABOUT, ACCOUNT, CONTACT, DASHBOARD, FORGOT_PASSWORD, HOME, PROJECTS, SIGNIN, SIGNUP, SIGNUP_OTP, TASKS, NOTFOUND } from './RouteConstants';
 import LandingPageLayout from '../Layout/LandingPageLayout/LandingPageLayout';
 import Home from '../pages/landingPage/home/Home';
 import About from '../pages/landingPage/about/About';
 import Contact from '../pages/landingPage/contact/Contact';
 import AuthLayout from '../Layout/AuthLayout/AuthLayout';
-import { NOTFOUND } from 'dns';
 import NotFound from '../pages/landingPage/NotFound';
 import ForgotPassword from '../pages/authPage/ForgotPassword';
 import SignUp from '../pages/authPage/SignUp';
 import SignIn from '../pages/authPage/SignIn';
-import DashboardLayout from '../Layout/Dashboard/DashboardLayout';
-import Dashboard from '../pages/DashboardPage/Dashboard';
-import Account from '../pages/DashboardPage/account/Account';
-import Projects from '../pages/DashboardPage/projects/Projects';
-import Task from '../pages/DashboardPage/tasks/Task';
+import Dashboard from '../pages/authPage/dashboard/Dashboard';
+import Projects from '../pages/authPage/projects/Projects';
+import Task from '../pages/authPage/tasks/Task';
+import Account from '../pages/authPage/account/Account';
 
 const Routes = () => {
   return useRoutes([
@@ -38,8 +36,8 @@ const Routes = () => {
         ]
     },
     {
-        path: DASHBOARD,
-        element: <DashboardLayout />,
+        path: ACCOUNT,
+        element: <AuthLayout />,
         children: [
             {
                 path: DASHBOARD,
@@ -57,12 +55,6 @@ const Routes = () => {
                 path: ACCOUNT,
                 element: <Account />
             },
-        ]
-    },
-    {
-        path: ACCOUNT,
-        element: <AuthLayout />,
-        children: [
             {
                 path: SIGNIN,
                 element: <SignIn />
@@ -80,14 +72,19 @@ const Routes = () => {
                 element: <SIGNUP_OTP />
             },
             {
-                path: NOTFOUND, element: <NotFound />
+                path: NOTFOUND,
+                element: <NotFound />
             },
             {
-                path: '*', element: <Navigate to={`/${NOTFOUND}`} replace />
+                path: '*',
+                element: <Navigate to={`/${NOTFOUND}`} replace />
             }
         ]
     },
-    { path: '*', element: <NotFound /> }
+    {
+        path: '*',
+        element: <NotFound />
+    }
   ]);
 }
 

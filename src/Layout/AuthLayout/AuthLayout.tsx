@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../../components/navbars/Navbar";
+import DashboardNav from "../../components/navbars/dashboardNav/DashboardNav";
 
 function AuthLayout() {
     return(
         <div>
-            <Navbar />
+            <DashboardNav />
             <main>
                 <Outlet />
             </main>
