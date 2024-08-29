@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
-import 'antd/dist/antd.css'; // Import Ant Design styles
+// import 'antd/dist/antd.css'; // Import Ant Design styles
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

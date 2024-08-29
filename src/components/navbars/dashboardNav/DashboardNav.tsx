@@ -14,11 +14,13 @@ const DashboardNav = () => {
             <figcaption>AProjectO</figcaption>
           </figure>
         </div>
-        <aside className="aside border">
-          <CiSearch size={32} className="aside-icon"/>
-          <input type="text" placeholder="Search..." aria-label="Search" />
+        <aside className="aside">
+          <div className="aside-search">
+            <CiSearch size={28} className="aside-icon"/>
+            <input type="text" placeholder="Search for anything..." aria-label="Search" />
+          </div>
+          <Button type="primary">Sign In</Button>
         </aside>
-        <Button type="primary">Primary Button</Button>
       </div>
     </nav>
   );
