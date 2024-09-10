@@ -1,14 +1,14 @@
 nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   height: auto;
   background-color: white;
+  z-index: 50;
 }
 
 .container {
-  color: rgb(128, 128, 128);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,23 +68,75 @@ nav {
 }
 
 .aside {
-  width: 50%;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
   justify-content: center;
 }
-.aside .aside-icon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  margin-left: 12px;
+@media (max-width: 640px) {
+  .aside {
+    gap: 10px;
+  }
 }
 .aside input {
   border-radius: 8px;
   border: 1px solid rgb(128, 128, 128);
   padding: 10px 16px 10px 44px;
-  font-size: 18px;
+  font-size: 14px;
   outline: none;
+  width: 350px;
+}
+@media (max-width: 768px) {
+  .aside input {
+    width: 250px;
+  }
+}
+@media (max-width: 640px) {
+  .aside input {
+    width: 100%;
+    max-width: 200px;
+    display: none;
+  }
+}
+.aside .relative {
+  position: relative;
+}
+.aside .aside-search {
+  position: absolute;
+  top: 0;
+  z-index: 50;
+  bottom: 0;
+  margin: auto;
+  margin-left: 12px;
+}
+@media (max-width: 640px) {
+  .aside .aside-search {
+    position: relative;
+  }
+}
+.aside .aside-bell {
+  color: rgb(11, 48, 81);
+  font-size: 30px;
+}
+@media (max-width: 640px) {
+  .aside .aside-bell {
+    font-size: 26px;
+  }
+}
+.aside .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.aside .user .text {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-weight: normal;
+}
+@media (max-width: 1024px) {
+  .aside .user .text {
+    display: none;
+  }
 }/*# sourceMappingURL=DashboardNav.css.map */

@@ -1,0 +1,11 @@
+@import "../../../styles/base/_variables/variables";
+
+.card {
+    color: $brand-black;
+    padding: 10px;
+    width: fit-content;
+}
+
+figure {
+    width: 200px;
+}

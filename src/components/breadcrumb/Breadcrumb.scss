@@ -1,0 +1,14 @@
+@import "../../styles/base/_variables/variables";
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-gray {
+    color: $brand-grey;
+}
+
+.capitalize {
+    text-transform: capitalize;
+    font-size: large;
+}

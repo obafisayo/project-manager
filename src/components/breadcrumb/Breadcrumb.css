@@ -1,0 +1,12 @@
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray {
+  color: rgb(128, 128, 128);
+}
+
+.capitalize {
+  text-transform: capitalize;
+  font-size: large;
+}/*# sourceMappingURL=Breadcrumb.css.map */

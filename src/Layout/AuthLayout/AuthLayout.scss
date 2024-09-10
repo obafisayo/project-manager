@@ -1,0 +1,11 @@
+@import "../../styles/utils/_mixins/mixins";
+
+.side {
+    transition: width 0.2s ease-in-out;
+}
+
+.collapse-btn {
+    @include max-sm {
+        display: none;
+    }
+}

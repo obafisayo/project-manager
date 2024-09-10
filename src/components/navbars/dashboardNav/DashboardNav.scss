@@ -2,15 +2,16 @@
 @import "../../../styles/base/_variables/variables";
 
 nav {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
     height: auto;
     background-color: white;
+    z-index: 50;
 }
+
 .container {
-    color: $brand-grey;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,6 +22,7 @@ nav {
     font-size: x-large;
     font-weight: 600;
     color: $brand-blue;
+
     #{&}-icon {
         display: flex;
         justify-content: center;
@@ -30,25 +32,73 @@ nav {
 }
 
 .aside {
-    width: 50%;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
     justify-content: center;
-    #{&}-icon {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        margin-left: 12px;
+
+    @include max-sm {
+        gap: 10px;
     }
+
     input {
-        // height: 40px;
         border-radius: 8px;
         border: 1px solid $brand-grey;
         padding: 10px 16px 10px 44px;
-        font-size: 18px;
+        font-size: 14px;
         outline: none;
+        width: 350px;
+
+        // Media queries for responsive design
+        @include max-md {
+            width: 250px;
+        }
+
+        @include max-sm {
+            width: 100%;
+            max-width: 200px;
+            display: none;
+        }
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    #{&}-search {
+        position: absolute;
+        top: 0;
+        z-index: 50;
+        bottom: 0;
+        margin: auto;
+        margin-left: 12px;
+        @include max-sm {
+            position: relative;
+        }
+    }
+
+    #{&}-bell {
+        color: $brand-blue;
+        font-size: 30px;
+        @include max-sm {
+            font-size: 26px;
+        }
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            font-weight: normal;
+            @include max-lg {
+                display: none;
+            }
+        }
     }
 }
-

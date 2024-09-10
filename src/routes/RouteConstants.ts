@@ -11,11 +11,11 @@ export const SIGNUP_OTP:string = '/account/signup-otp';
 export const FORGOT_PASSWORD:string = '/account/forgot-password';
 
 // Dashboard routes
-export const DASHBOARD:string = "account/dashboard"
-export const PROJECTS:string = "account/projects"
+export const DASHBOARD:string = "/account/dashboard"
+export const PROJECTS:string = "/account/projects"
 // export const CREATE_PROJECTS:string = "/create-projects"
 // export const EDIT_PROJECTS:string = "/edit-projects"
-export const TASKS:string = "account/tasks"
+export const TASKS:string = "/account/tasks"
 // export const CREATE_TASKS:string = "/create-tasks"
 // export const EDIT_TASKS:string = "/edit-tasks"
 // export const PROFILE:string = "/profile"

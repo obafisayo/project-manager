@@ -1,0 +1,10 @@
+.card {
+  color: rgb(26, 23, 23);
+  padding: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+figure {
+  width: 200px;
+}/*# sourceMappingURL=Dashboard.css.map */

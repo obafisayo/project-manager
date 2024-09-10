@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./Navbar.css"
+import { DASHBOARD } from '../../routes/RouteConstants';
 
 const Navbar = () => {
   return (
@@ -9,6 +11,7 @@ const Navbar = () => {
             <a href="/">home </a>
             <a href="/about">about </a>
             <a href="/contact">contact </a>
+            <Link to={DASHBOARD}>Dashboard</Link>
             <a href="/sign-up">
                 <button className="btn-1">Sign Up</button>
             </a>

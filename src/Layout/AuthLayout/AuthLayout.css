@@ -1,0 +1,9 @@
+.side {
+  transition: width 0.2s ease-in-out;
+}
+
+@media (max-width: 640px) {
+  .collapse-btn {
+    display: none;
+  }
+}/*# sourceMappingURL=AuthLayout.css.map */
