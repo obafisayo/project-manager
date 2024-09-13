@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import './PieChartComponent.css';
 
 interface DataProps {
@@ -46,7 +46,6 @@ const PieChartComponent: React.FC = () => {
             ))}
           </Pie>
           <Tooltip />
-          {/* <Legend /> */}
       </PieChart>
       <div className="legend">
         {data.map((entry) => (
