@@ -1,11 +1,56 @@
 @import "../../../styles/base/_variables/variables";
+@import "../../../styles/utils/_mixins/mixins";
 
-.card {
+.dash {
     color: $brand-black;
     padding: 10px;
-    width: fit-content;
+    @include max-md {
+        padding: 0;
+        margin: 5px;
+    }
 }
 
-figure {
-    width: 200px;
+.grid {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: fit-content fit-content 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "projects"
+    "task"
+    "work"
+    "performance"
+    ;
+    @include lg {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+        grid-template-areas: 
+        "projects projects task task task"
+        "work work performance performance performance"
+        ;
+    }
+}
+
+.projects {
+    grid-area: projects;
+    border-radius: 14px;
+}
+.task {
+    grid-area: task;
+    border-radius: 14px;
+}
+.work {
+    grid-area: work;
+    border-radius: 14px;
+}
+.performance {
+    grid-area: performance;
+    border-radius: 14px;
+}
+
+.bottom {
+    width: fit-content;
+}
+.bottom .project-img {
+    width: 100%;
 }

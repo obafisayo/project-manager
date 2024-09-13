@@ -1,53 +1,54 @@
 import React, { useState } from 'react';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Flex, Space, Switch } from 'antd';
-import "./Dashboard.css"
-import ProjectImage from "../../../assets/img/project_image.png"
+import "./Dashboard.css";
+import ProjectImage from "../../../assets/img/project_image.png";
 import { Link } from 'react-router-dom';
-import { PROJECTS } from '../../../routes/RouteConstants';
+import { PROJECTS, TASKS } from '../../../routes/RouteConstants';
+import Card from '../../../components/card/Card';
+import PieChartComponent from '../../../components/piechart/PieChartComponent';
 
-const actions: React.ReactNode[] = [
-  <EditOutlined key="edit" />,
-  <SettingOutlined key="setting" />,
-  <EllipsisOutlined key="ellipsis" />,
-];
-
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const num: number = 52;
+
 
   return (
-    <div>
-      <Flex gap="middle" align="start" >
-        {/* <Switch checked={!loading} onChange={(checked) => setLoading(!checked)} /> */}
-          <Link to={PROJECTS} style={{ width: "40%" }}>
-            <Card className='shadow-lg' loading={loading} >
-              <Card.Meta className='shadow-lg'
-              description={
-                <div className="card">
-                  <figure className="logo-icon">
-                    <figcaption>Projects</figcaption>
-                    <img src={ProjectImage} alt="AProject Logo" />
-                  </figure>
-                </div>
-              }
-              />
-            </Card>
+    <div className="dash grid">
+      <div className='shadow-lg projects'>
+        <Card btntext={`${num} files`} title={"Projects"}>
+          <Link to={PROJECTS}>
+            <div className='bottom'>
+              <img src={ProjectImage} alt="project-img" className='project-img' />
+            </div>
           </Link>
-          <Card className='shadow-lg' loading={loading} actions={actions} style={{ width: "60%" }}>
-            <Card.Meta className='shadow-lg'
-              avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=2" />}
-              title="Card title"
-              description={
-                <>
-                  <p>This is the description</p>
-                  <p>This is the description</p>
-                </>
-              }
-            />
-          </Card>
-      </Flex>
+        </Card>
+      </div>
+      <div className='task'>
+        <Card  title={"Task"}>
+          <Link to={TASKS}>
+            <div className='bottom'>
+              <PieChartComponent />
+            </div>
+          </Link>
+        </Card>
+      </div>
+      <div className='work'>
+        <Card  title={"Work"}>
+          <Link to={TASKS}>
+            <div className='bottom'>
+            </div>
+          </Link>
+        </Card>
+      </div>
+      <div className='performance'>
+        <Card  title={"Performance"}>
+          <Link to={TASKS}>
+            <div className='bottom'>
+            </div>
+          </Link>
+        </Card>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Dashboard;

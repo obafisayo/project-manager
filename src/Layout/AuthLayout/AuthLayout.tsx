@@ -47,7 +47,7 @@ const AuthLayout: React.FC = () => {
           <Sider
             style={{
               position: "fixed",
-              top: '10vh',
+              top: '9vh',
               bottom: 0,
               left: 0,
               background: "white",
@@ -96,14 +96,7 @@ const AuthLayout: React.FC = () => {
             />
             <Breadcrumb />
           </Header>
-          <Content
-            style={{
-              margin: '0px 16px 24px 16px',
-              // padding: 24,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
+          <Content>
             <Outlet />
           </Content>
         </Layout>

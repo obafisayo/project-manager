@@ -1,0 +1,34 @@
+@import "../../styles/utils/_mixins/mixins";
+@import "../../styles/base/_variables/variables";
+.card {
+    padding: 15px 30px;
+    background-color: white;
+    border-radius: 14px;
+    width: 100%;
+    height: 100%;
+    @include max-sm {
+        padding: 10px 15px;
+    }
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-text {
+    font-size: 26px;
+    font-weight: 500;
+}
+.sub-card {
+    display: flex;
+    flex-direction: column;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: $brand-grey;
+    font-size: 12px;
+}
