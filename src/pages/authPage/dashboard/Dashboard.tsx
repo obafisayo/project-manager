@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./Dashboard.css";
 import ProjectImage from "../../../assets/img/project_image.png";
 import { Link } from 'react-router-dom';
@@ -7,9 +7,7 @@ import Card from '../../../components/card/Card';
 import PieChartComponent from '../../../components/piechart/PieChartComponent';
 
 const Dashboard: React.FC = () => {
-  const [loading, setLoading] = useState<boolean>(false);
   const num: number = 52;
-
 
   return (
     <div className="dash grid">

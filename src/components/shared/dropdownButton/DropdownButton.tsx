@@ -66,12 +66,10 @@ const DropdownButton: React.FC = () => {
       }}
       trigger={['click']}
     >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          {selectedValue} {/* Display the selected value */}
-          <CaretDownOutlined />
-        </Space>
-      </a>
+      <Space>
+        {selectedValue} {/* Display the selected value */}
+        <CaretDownOutlined />
+      </Space>
     </Dropdown>
   );
 }
