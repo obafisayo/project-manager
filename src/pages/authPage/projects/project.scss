@@ -1,0 +1,42 @@
+// src/styles/Projects.scss
+// Import variables for consistent colors, spacing, etc.
+@import '../../../styles/base/_variables/variables';
+
+// Import mixins for reusable CSS (e.g., flexbox centering, media queries)
+@import '../../../styles/utils/_mixins/mixins';
+
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 columns by default
+  gap: 2rem;
+  padding: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on medium screens
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // 1 column on small screens
+  }
+}
+
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  span {
+    padding: 0.5rem 1rem;
+    background-color: $pagination-bg-color;
+    color: $brand-white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $pagination-hover-bg-color;
+    }
+  }
+}

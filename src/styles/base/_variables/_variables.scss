@@ -3,4 +3,22 @@ $brand-grey: rgb(128, 128, 128);
 $brand-black: rgb(26, 23, 23);
 $brand-white: rgb(232, 232, 232);
 $brand-red: rgb(226, 51, 45);
-$brand-blue: rgb(11, 48, 81)
+$brand-blue: rgb(11, 48, 81);
+
+// Additional colors used in the SCSS
+$primary-color: #007bff; // For buttons, links, and primary elements
+$primary-bg-color: #f8f9fa; // Background color for cards and sections
+$border-color: #e6e6e6; // Light border for cards
+$text-muted: #777; // For less prominent text, like dates
+$text-color: #666; // For regular descriptive text
+$success-color: #28a745; // For success buttons or status indicators
+$avatar-border: white; // Border color for avatars
+
+// Shadows
+$box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1); // Light shadow for elevation
+$box-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.15); // Shadow on hover for cards
+
+// Pagination button styles
+$pagination-bg-color: #007bff; // Background color for pagination buttons
+$pagination-hover-bg-color: darken($pagination-bg-color, 10%); // Darker background color for hover state
+

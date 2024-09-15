@@ -1,1 +1,1 @@
-{"version":3,"sources":["Dashboard.scss","../../../styles/base/_variables/_variables.scss","Dashboard.css"],"names":[],"mappings":"AAEA;EACI,sBCDU;EDEV,aAAA;EACA,uBAAA;EAAA,kBAAA;AEDJ;;AFIA;EACI,YAAA;AEDJ","file":"Dashboard.css"}
+{"version":3,"sourceRoot":"","sources":["Dashboard.scss","../../../styles/base/_variables/_variables.scss"],"names":[],"mappings":"AAEA;EACI,OCDU;EDEV;EACA;;;AAGJ;EACI","file":"Dashboard.css"}
