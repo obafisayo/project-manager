@@ -1,0 +1,80 @@
+.create-project-container {
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.create-project-container .breadcrumb {
+  font-size: 1.2rem;
+  color: #8f8f8f;
+  margin-bottom: 1rem;
+}
+.create-project-container .create-project-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.create-project-container .create-project-form .form-group {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.create-project-container .create-project-form .form-group .form-field {
+  flex: 1;
+}
+.create-project-container .create-project-form .form-group .form-field label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.create-project-container .create-project-form .form-group .form-field input,
+.create-project-container .create-project-form .form-group .form-field textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.create-project-container .create-project-form .form-field {
+  margin-bottom: 1.5rem;
+}
+.create-project-container .create-project-form .role-list label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.create-project-container .create-project-form .role-list label input {
+  margin-right: 0.5rem;
+}
+.create-project-container .create-project-form .role-list label .role-label {
+  color: #8f8f8f;
+}
+.create-project-container .create-project-form .form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.create-project-container .create-project-form .form-buttons .create-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.create-project-container .create-project-form .form-buttons .create-btn:hover {
+  background-color: #0062cc;
+}
+.create-project-container .create-project-form .form-buttons .delete-btn {
+  background-color: #e6e6e6;
+  color: #333;
+  padding: 0.7rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+}/*# sourceMappingURL=createprojects.css.map */
