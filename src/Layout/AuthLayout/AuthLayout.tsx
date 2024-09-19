@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu } from 'antd';
 import './AuthLayout.css';
 import DashboardNav from "../../components/navbars/dashboardNav/DashboardNav";
 import { AiFillProduct } from "react-icons/ai";
@@ -14,9 +14,6 @@ const { Header, Sider, Content } = Layout;
 
 const AuthLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
 
   const handleResize = () => {
     if (window.innerWidth < 640) {
@@ -47,7 +44,7 @@ const AuthLayout: React.FC = () => {
           <Sider
             style={{
               position: "fixed",
-              top: '10vh',
+              top: '9vh',
               bottom: 0,
               left: 0,
               background: "white",
@@ -96,14 +93,7 @@ const AuthLayout: React.FC = () => {
             />
             <Breadcrumb />
           </Header>
-          <Content
-            style={{
-              margin: '0px 16px 24px 16px',
-              // padding: 24,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
+          <Content>
             <Outlet />
           </Content>
         </Layout>

@@ -13,7 +13,7 @@ const Breadcrumb = () => {
   }
 
   return (
-    <div>
+    <div className='ml-4'>
       {pathParts.map((part, index) => (
         <span key={index}>
           {index < pathParts.length - 1 ? (

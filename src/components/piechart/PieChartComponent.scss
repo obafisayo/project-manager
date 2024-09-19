@@ -1,0 +1,53 @@
+@import "../../styles/utils/_mixins/mixins";
+
+.pie-chart-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    color: black;
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      text-decoration: none;
+
+      .color-box {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+  
+@include max-lg {
+  .pie-chart-container {
+    flex-direction: column;
+    .legend {
+      flex-direction: row;
+      gap: 10px;
+      .legend-item {
+        text-wrap: nowrap;
+      }
+    }
+  }
+}
+@include max-sm {
+  .pie-chart-container {
+    flex-direction: column;
+    .legend {
+      flex-direction: column;
+      gap: 10px;
+      .legend-item {
+        text-wrap: nowrap;
+      }
+    }
+  }
+}
