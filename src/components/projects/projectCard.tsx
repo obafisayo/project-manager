@@ -1,6 +1,7 @@
-// src/components/projects/ProjectCard.tsx
 import React from 'react';
-import '../../pages/authPage/projects/project.css';
+import { Card, Avatar, Tag, Tooltip } from 'antd';
+import { EditOutlined, IssuesCloseOutlined, CalendarOutlined } from '@ant-design/icons'; // Ant Design Icons
+import './projectCard.css'; // Your custom CSS if needed
 
 interface ProjectCardProps {
   title: string;
@@ -10,23 +11,40 @@ interface ProjectCardProps {
   avatars: string[];
 }
 
+const { Meta } = Card;
+
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, dueDate, issuesCount, avatars }) => {
   return (
-    <div className="project-card">
-      <div className="project-card-header">
-        <h3>{title}</h3>
-        <span>{dueDate}</span>
-      </div>
-      <p className="project-description">{description}</p>
-      <div className="project-details">
-        <span>{issuesCount} issues</span>
-        <div className="avatars">
-          {avatars.map((avatar, index) => (
-            <img key={index} src={avatar} alt={`Avatar ${index}`} />
-          ))}
-        </div>
-      </div>
-    </div>
+    <Card
+      hoverable
+      style={{ borderRadius: '10px' }} // Apply styling directly or via CSS
+      actions={[
+        <span><CalendarOutlined /> {dueDate}</span>, // Display project due date
+        <span><IssuesCloseOutlined /> {issuesCount} issues</span>, // Display issues count
+      ]}
+      extra={<Tag color="red">Offtrack</Tag>} // You can change this dynamically
+    >
+      <Meta
+        title={
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            {title} <EditOutlined />
+          </div>
+        }
+        description={
+          <div>
+            <p>{description}</p>
+            {/* Avatar Group */}
+            <Avatar.Group maxCount={4} size="small" maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
+              {avatars.map((avatar, index) => (
+                <Tooltip title={`Team Member ${index + 1}`} key={index}>
+                  <Avatar src={avatar} />
+                </Tooltip>
+              ))}
+            </Avatar.Group>
+          </div>
+        }
+      />
+    </Card>
   );
 };
 
