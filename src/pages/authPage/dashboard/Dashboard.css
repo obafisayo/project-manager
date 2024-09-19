@@ -12,13 +12,13 @@
 .grid {
   display: grid;
   gap: 10px;
-  grid-template-rows: fit-content fit-content 1fr 1fr;
+  grid-template-rows: fit-content fit-content fit-content fit-content;
   grid-template-columns: 1fr;
   grid-template-areas: "projects" "task" "work" "performance";
 }
 @media (min-width: 1024px) {
   .grid {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: fit-content fit-content;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "projects projects task task task" "work work performance performance performance";
   }
@@ -47,6 +47,10 @@
 .bottom {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.bottom-performance {
+  width: 100%;
 }
 
 .bottom .project-img {

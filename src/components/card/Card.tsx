@@ -11,7 +11,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({children, btntext, title}) => {
   return (
-    <div className="card shadow-lg">
+    <div className="card shadow-md">
         <div className="sub-card">
           <div className="top">
             {title && <h1 className='top-text'>

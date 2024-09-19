@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom';
 import { PROJECTS, TASKS } from '../../../routes/RouteConstants';
 import Card from '../../../components/card/Card';
 import PieChartComponent from '../../../components/piechart/PieChartComponent';
+import DoughnutChart from '../../../components/doughnut_chart/DoughnutChart';
+import LineChartComponent from '../../../components/line-chart/LineChartComponent';
 
 const Dashboard: React.FC = () => {
   const num: number = 52;
 
   return (
     <div className="dash grid">
-      <div className='shadow-lg projects'>
+      <div className='projects'>
         <Card btntext={`${num} files`} title={"Projects"}>
           <Link to={PROJECTS}>
             <div className='bottom'>
@@ -30,9 +32,10 @@ const Dashboard: React.FC = () => {
         </Card>
       </div>
       <div className='work'>
-        <Card  title={"Work"}>
+        <Card  title={"Work Log"}>
           <Link to={TASKS}>
             <div className='bottom'>
+              <DoughnutChart />
             </div>
           </Link>
         </Card>
@@ -40,7 +43,8 @@ const Dashboard: React.FC = () => {
       <div className='performance'>
         <Card  title={"Performance"}>
           <Link to={TASKS}>
-            <div className='bottom'>
+            <div className='bottom-performance'>
+              <LineChartComponent />
             </div>
           </Link>
         </Card>

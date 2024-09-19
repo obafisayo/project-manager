@@ -13,7 +13,7 @@
 .grid {
     display: grid;
     gap: 10px;
-    grid-template-rows: fit-content fit-content 1fr 1fr;
+    grid-template-rows: fit-content fit-content fit-content fit-content;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "projects"
@@ -22,7 +22,7 @@
     "performance"
     ;
     @include lg {
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: fit-content fit-content;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
         grid-template-areas: 
         "projects projects task task task"
@@ -50,6 +50,11 @@
 
 .bottom {
     width: fit-content;
+    
+}
+.bottom-performance {
+    width: 100%;
+    
 }
 .bottom .project-img {
     width: 100%;
