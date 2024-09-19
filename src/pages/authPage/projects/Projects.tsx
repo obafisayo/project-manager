@@ -4,7 +4,7 @@ import './project.css'; // Import your CSS file
 import { Link } from 'react-router-dom';
 import { CREATE_PROJECTS } from '../../../routes/RouteConstants';
 import { Button, Row, Col, Pagination } from 'antd'; // Ant Design imports
-import { projectData } from '../../../data/projectData'; // Importing the project data
+import { projectData } from './projectData'; // Importing the project data
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState(projectData); // Initially set with imported project data
