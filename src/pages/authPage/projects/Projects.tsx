@@ -1,72 +1,56 @@
-// src/pages/projects/Projects.tsx
 import React, { useState, useEffect } from 'react';
-import ProjectCard from '../../../components/projects/projectCard'; // Corrected to lowercase 'p'
+import ProjectCard from '../../../components/projects/projectCard'; // Make sure this path is correct
 import './project.css'; // Import your CSS file
 import { Link } from 'react-router-dom';
 import { CREATE_PROJECTS } from '../../../routes/RouteConstants';
-// import CreateProjects from './createProjects/CreateProjects';
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  dueDate: string;
-  issuesCount: number;
-  avatars: string[]; // Array of avatar image URLs
-}
+import { Button, Row, Col, Pagination } from 'antd'; // Ant Design imports
+import { projectData } from './projectData'; // Importing the project data
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState(projectData); // Initially set with imported project data
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // You can still use useEffect if you plan to fetch data from an API in the future
   useEffect(() => {
     // Simulate fetching project data
-    const fetchedProjects: Project[] = [
-      {
-        id: '1',
-        title: 'Project Alpha',
-        description: 'Initial project description...',
-        dueDate: '10 Oct, 2023',
-        issuesCount: 5,
-        avatars: ['avatar1.png', 'avatar2.png'], // Avatar paths are placeholders
-      },
-      {
-        id: '2',
-        title: 'Project Beta',
-        description: 'Beta project description...',
-        dueDate: '15 Oct, 2023',
-        issuesCount: 3,
-        avatars: ['avatar3.png', 'avatar4.png'],
-      },
-    ];
-    setProjects(fetchedProjects);
+    // In this case, it's already imported, so you may not need this useEffect
   }, []);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Handle pagination logic if needed
+  };
 
   return (
     <div className="projects-container">
       {/* Create Button */}
-      <div className="create-button-container">
-
-      <Link to={CREATE_PROJECTS}>
-        <button className="create-button">Create</button>
-      </Link>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+        <h2>Projects</h2>
+        <Link to={CREATE_PROJECTS}>
+          <Button type="primary" size="large" style={{ borderRadius: '20px' }}>
+            Create
+          </Button>
+        </Link>
       </div>
 
-      <div className="project-list">
+      {/* Project List */}
+      <Row gutter={[16, 16]}>
         {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            dueDate={project.dueDate}
-            issuesCount={project.issuesCount}
-            avatars={project.avatars}
-          />
+          <Col key={project.id} xs={24} sm={12} lg={8}>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              dueDate={project.dueDate}
+              issuesCount={project.issuesCount}
+              avatars={project.avatars}
+            />
+          </Col>
         ))}
+      </Row>
 
-        {/* <div className="pagination">
-          <span>Previous</span>
-          <span>1</span>
-          <span>Next</span>
-        </div> */}
+      {/* Pagination */}
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <Pagination current={currentPage} total={30} onChange={handlePageChange} />
       </div>
     </div>
   );
