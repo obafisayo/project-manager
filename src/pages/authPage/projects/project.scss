@@ -1,0 +1,72 @@
+// Import variables for consistent colors, spacing, etc.
+@import '../../../styles/base/_variables/variables';
+
+// Import mixins for reusable CSS (e.g., flexbox centering, media queries)
+@import '../../../styles/utils/_mixins/mixins';
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Full viewport height
+  padding: 2rem;
+  position: relative;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 columns by default
+  gap: 2rem;
+  flex-grow: 1; // Ensure it takes up the remaining space
+  padding: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on medium screens
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // 1 column on small screens
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem; // Space from bottom
+  padding-top: 1rem; // Padding to separate it from content
+
+  span {
+    padding: 0.5rem 1rem;
+    background-color: $pagination-bg-color;
+    color: $brand-white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $pagination-hover-bg-color;
+    }
+  }
+}
+
+.create-button-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.create-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: darken(#007bff, 10%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}
