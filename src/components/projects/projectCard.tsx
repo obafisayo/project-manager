@@ -1,9 +1,12 @@
 import React from 'react';
 import { Card, Avatar, Tag, Tooltip } from 'antd';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { EditOutlined, IssuesCloseOutlined, CalendarOutlined } from '@ant-design/icons'; // Ant Design Icons
 import './projectCard.css'; // Your custom CSS if needed
+import { EDIT_PROJECTS } from '../../routes/RouteConstants'; // Assuming EDIT_PROJECTS is a route constant
 
 interface ProjectCardProps {
+  id: string;
   title: string;
   description: string;
   dueDate: string;
@@ -13,7 +16,7 @@ interface ProjectCardProps {
 
 const { Meta } = Card;
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, dueDate, issuesCount, avatars }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ id, title, description, dueDate, issuesCount, avatars }) => {
   return (
     <Card
       hoverable
@@ -27,7 +30,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, dueDate, 
       <Meta
         title={
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            {title} <EditOutlined />
+            {title}
+            {/* Wrap the Edit icon in a Link to navigate to Edit Project page */}
+            <Link to={`${EDIT_PROJECTS}`}>
+              <EditOutlined />
+            </Link>
           </div>
         }
         description={

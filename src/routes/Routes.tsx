@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
-import { ABOUT,CREATE_PROJECTS, ACCOUNT, CONTACT, DASHBOARD, FORGOT_PASSWORD, HOME, PROJECTS, SIGNIN, SIGNUP, SIGNUP_OTP, TASKS, NOTFOUND } from './RouteConstants';
+import { ABOUT,CREATE_PROJECTS, ACCOUNT, CONTACT, DASHBOARD, FORGOT_PASSWORD, HOME, PROJECTS, SIGNIN, SIGNUP, SIGNUP_OTP, TASKS, NOTFOUND, EDIT_PROJECTS } from './RouteConstants';
 import LandingPageLayout from '../Layout/LandingPageLayout/LandingPageLayout';
 import Home from '../pages/landingPage/home/Home';
 import About from '../pages/landingPage/about/About';
@@ -15,6 +15,7 @@ import Projects from '../pages/authPage/projects/Projects';
 import CreateProjects from '../pages/authPage/projects/createProjects/CreateProjects'; // Import CreateProjects
 import Task from '../pages/authPage/tasks/Task';
 import Account from '../pages/authPage/account/Account';
+import EditProject from '../pages/authPage/projects/editProjects/EditProjects';
 
 const Routes = () => {
   return useRoutes([
@@ -52,6 +53,10 @@ const Routes = () => {
           path: CREATE_PROJECTS, // Use the constant for the path
           element: <CreateProjects /> // Add the create project route
           },
+          {
+            path: EDIT_PROJECTS, // Use the constant for the path
+            element: <EditProject /> // Add the create project route
+            },
 
         {
           path: TASKS,
