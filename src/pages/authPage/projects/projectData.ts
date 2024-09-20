@@ -1,0 +1,50 @@
+export const projectData = [
+  {
+    id: '1',
+    title: 'Project Alpha',
+    description: 'Initial project description...',
+    dueDate: '10 Oct, 2023',
+    issuesCount: 5,
+    avatars: ['avatar1.png', 'avatar2.png'], // Avatar paths are placeholders
+  },
+  {
+    id: '2',
+    title: 'Project Beta',
+    description: 'Beta project description...',
+    dueDate: '15 Oct, 2023',
+    issuesCount: 3,
+    avatars: ['avatar3.png', 'avatar4.png'],
+  },
+  {
+    id: '3',
+    title: 'Project Gamma',
+    description: 'Gamma project description...',
+    dueDate: '20 Oct, 2023',
+    issuesCount: 7,
+    avatars: ['avatar5.png', 'avatar6.png'],
+  },
+  {
+    id: '4',
+    title: 'Project Delta',
+    description: 'Delta project description...',
+    dueDate: '25 Oct, 2023',
+    issuesCount: 9,
+    avatars: ['avatar7.png', 'avatar8.png'],
+  },
+  {
+    id: '5',
+    title: 'Project Epsilon',
+    description: 'Epsilon project description...',
+    dueDate: '30 Oct, 2023',
+    issuesCount: 12,
+    avatars: ['avatar9.png', 'avatar10.png'],
+  },
+  {
+    id: '6',
+    title: 'Project Zeta',
+    description: 'Zeta project description...',
+    dueDate: '05 Nov, 2023',
+    issuesCount: 4,
+    avatars: ['avatar11.png', 'avatar12.png'],
+  },
+];
