@@ -53,7 +53,10 @@ const Routes = () => {
           path: CREATE_PROJECTS,
           element: <CreateProjects />
         },
-
+        {
+          path: EDIT_PROJECTS,
+          element: <EditProject />
+        },
         {
           path: TASKS,
           element: <Task />
