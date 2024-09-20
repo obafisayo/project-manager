@@ -13,8 +13,8 @@ export const FORGOT_PASSWORD:string = '/account/forgot-password';
 // Dashboard routes
 export const DASHBOARD:string = "/account/dashboard"
 export const PROJECTS:string = "/account/projects"
-export const CREATE_PROJECTS = "/account/Projects/CreateProjects";
-export const EDIT_PROJECTS:string = "/account/Projects/EditProjects"
+export const CREATE_PROJECTS:string = `${PROJECTS}/create-projects`;
+// export const EDIT_PROJECTS:string = "/edit-projects"
 export const TASKS:string = "/account/tasks"
 // export const CREATE_TASKS:string = "/create-tasks"
 // export const EDIT_TASKS:string = "/edit-tasks"

@@ -25,6 +25,7 @@
 @media (max-width: 1024px) {
   .pie-chart-container {
     flex-direction: column;
+    margin-left: 68px;
   }
   .pie-chart-container .legend {
     flex-direction: row;
@@ -34,8 +35,9 @@
     text-wrap: nowrap;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .pie-chart-container {
+    margin-left: 38px;
     flex-direction: column;
   }
   .pie-chart-container .legend {

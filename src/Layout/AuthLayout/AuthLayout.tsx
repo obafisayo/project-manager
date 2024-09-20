@@ -6,7 +6,7 @@ import DashboardNav from "../../components/navbars/dashboardNav/DashboardNav";
 import { AiFillProduct } from "react-icons/ai";
 import { BiSolidNotepad } from "react-icons/bi";
 import { FaTasks } from "react-icons/fa";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { CloseOutlined, MenuFoldOutlined, MenuOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { DASHBOARD, PROJECTS, TASKS } from "../../routes/RouteConstants";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 
@@ -14,12 +14,16 @@ const { Header, Sider, Content } = Layout;
 
 const AuthLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [clicked, setClicked] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const handleResize = () => {
     if (window.innerWidth < 640) {
       setCollapsed(true);
+      setIsMobile(true);
     } else {
       setCollapsed(false);
+      setIsMobile(false);
     }
   };
 
@@ -40,14 +44,17 @@ const AuthLayout: React.FC = () => {
     <Layout style={{ minHeight: '100vh' }}>
       <DashboardNav />
       <Layout>
-        <div className="side" style={{width: `${collapsed? "80px": "200px"}`}}>
+        <div className="side" style={{width: `${collapsed? isMobile? "0px" : "80px": "200px"}`}}>
           <Sider
             style={{
+              display: `${!isMobile? "" : clicked? 'flex' : 'none'}`,
+              height: `${isMobile? 'fit-content' : ''}`,
               position: "fixed",
-              top: '9vh',
+              top: "9vh",
               bottom: 0,
               left: 0,
-              background: "white",
+              backgroundColor: 'white',
+              zIndex: 1000,
             }}
             trigger={null} collapsible collapsed={collapsed}>
               <Menu
@@ -55,7 +62,6 @@ const AuthLayout: React.FC = () => {
                 theme="light"
                 mode="inline"
                 defaultSelectedKeys={['1']}
-                
               >
                 <Menu.Item key="1"
                   icon={<AiFillProduct style={{scale: "1.5"}} />}
@@ -91,6 +97,19 @@ const AuthLayout: React.FC = () => {
               }}
               className="collapse-btn"
             />
+            {isMobile && <Button
+              type="text"
+              icon={clicked ? <CloseOutlined /> : <MenuOutlined />}
+              onClick={() => setClicked(!clicked)}
+              style={{
+                fontSize: '16px',
+                width: 64,
+                height: 64,
+                position: `${isMobile? 'fixed' : 'relative'}`,
+                right: 0,
+              }}
+              className="click-btn"
+            />}
             <Breadcrumb />
           </Header>
           <Content>

@@ -50,13 +50,9 @@ const Routes = () => {
           element: <Projects />
         },
         {
-          path: CREATE_PROJECTS, // Use the constant for the path
-          element: <CreateProjects /> // Add the create project route
-          },
-          {
-            path: EDIT_PROJECTS, // Use the constant for the path
-            element: <EditProject /> // Add the create project route
-            },
+          path: CREATE_PROJECTS,
+          element: <CreateProjects />
+        },
 
         {
           path: TASKS,
