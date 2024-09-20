@@ -1,0 +1,13 @@
+/* editproject.css */
+.edit-project-container {
+  padding: 20px;
+}
+
+.edit-project-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.edit-project-form .ant-form-item {
+  margin-bottom: 20px;
+}/*# sourceMappingURL=editprojects.css.map */
