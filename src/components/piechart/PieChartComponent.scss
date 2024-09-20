@@ -30,6 +30,7 @@
 @include max-lg {
   .pie-chart-container {
     flex-direction: column;
+    margin-left: 68px;
     .legend {
       flex-direction: row;
       gap: 10px;
@@ -39,8 +40,9 @@
     }
   }
 }
-@include max-sm {
+@include max-md {
   .pie-chart-container {
+    margin-left: 38px;
     flex-direction: column;
     .legend {
       flex-direction: column;

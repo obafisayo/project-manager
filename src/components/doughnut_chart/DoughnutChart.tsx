@@ -22,6 +22,7 @@ const DoughnutChart: React.FC = () => {
     plugins: {
       legend: {
         position: 'right' as const, // Explicitly cast to const for type safety
+        align: 'center',
       },
     },
   };
