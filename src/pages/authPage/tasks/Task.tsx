@@ -6,7 +6,7 @@ import './task.scss'; // Custom styles for Task page
 
 const Task: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1); // Current page number
-  const pageSize = 10; // Number of tasks per page
+  const pageSize = 4; // Number of tasks per page
 
   // Calculate the tasks to display based on the current page and pageSize
   const startIndex = (currentPage - 1) * pageSize;
