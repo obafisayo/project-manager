@@ -1,6 +1,11 @@
 import React from 'react'
+import { ProjectT, TaskT } from '../../../../utils/types'
 
-const EditTask = () => {
+type Props = {
+  data: ProjectT | TaskT | null
+}
+
+const EditTask:React.FC<Props> = ({ data }) => {
   return (
     <div>EditTask</div>
   )

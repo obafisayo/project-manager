@@ -1,33 +1,22 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Card, Tag, Avatar, Row, Col, Typography, Button } from 'antd';
 import { ClockCircleOutlined, UnorderedListOutlined, MessageOutlined } from '@ant-design/icons';
-import './taskCard.scss'; // Your custom SCSS
+import './taskCard.css';
+import { TaskT } from '../../utils/types';
 
-// Define the Task type
-interface Task {
-  creator: ReactNode;
-  priority: string;
-  status: string;
-  id: string;
-  title: string;
-  description: string;
-  dueDate: string;
-  issuesCount: number;
-  avatars: string[];
-}
-
-// Define the props interface for TaskCard
 interface TaskCardProps {
-  task: Task; // Task object as a prop
+  task: TaskT;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+  const formattedDueDate = typeof task.dueDate === 'string' ? task.dueDate : task.dueDate.toLocaleDateString();
+
   return (
     <Card hoverable className="task-card">
       <Row justify="space-between" align="middle">
         <Col>
           <Typography.Title level={5}>{task.title}</Typography.Title>
-          <Typography.Text>#{task.id} Opened {task.dueDate} by {task.creator}</Typography.Text>
+          <Typography.Text>#{task.id} Opened {formattedDueDate} by {task.creator}</Typography.Text>
         </Col>
         <Col>
           <Tag color={task.status === 'Completed' ? 'green' : 'red'}>{task.status}</Tag>
@@ -37,7 +26,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
 
       <Row justify="space-between" align="middle" style={{ marginTop: '10px' }}>
         <Col>
-          <Button icon={<ClockCircleOutlined />} type="text">{task.dueDate}</Button>
+          <Button icon={<ClockCircleOutlined />} type="text">{formattedDueDate}</Button>
         </Col>
         <Col>
           <Avatar.Group maxCount={4} size="small">

@@ -1,40 +1,19 @@
-import React, { useState } from 'react';
-import TaskCard from '../../../components/tasks/taskCard'; // Path to your TaskCard component
-import { tasks } from '../../../data/taskData'; // Import task data from taskData.ts
-import { Pagination } from 'antd'; // Import Pagination component from Ant Design
-import './task.scss'; // Custom styles for Task page
+// Task.tsx
+import React from 'react';
+import TaskCard from '../../../components/tasks/taskCard';
+import { tasks } from '../../../data/taskData';
+import PaginatedList from '../../../components/paginatedList/PaginatedList';
+import './task.css';
 
 const Task: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1); // Current page number
-  const pageSize = 4; // Number of tasks per page
-
-  // Calculate the tasks to display based on the current page and pageSize
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const paginatedTasks = tasks.slice(startIndex, endIndex);
-
-  // Handle page change
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  const pageSize = 4;
 
   return (
     <div className="task-page">
-      {paginatedTasks.length > 0 ? (
-        paginatedTasks.map((task) => (
-          <TaskCard key={task.id} task={task} /> // Passing the task object to TaskCard
-        ))
-      ) : (
-        <p>No tasks available</p> // Fallback for when there are no tasks
-      )}
-
-      {/* Add Pagination Component */}
-      <Pagination
-        current={currentPage}
+      <PaginatedList
+        items={tasks}
         pageSize={pageSize}
-        total={tasks.length}
-        onChange={handlePageChange}
-        showSizeChanger={false} // Disable option to change page size
+        renderItem={(task) => <TaskCard key={task.id} task={task} />}
       />
     </div>
   );
