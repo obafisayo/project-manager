@@ -4,10 +4,15 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment'; // Make sure moment is installed
 import { projectData } from '../../../../data/projectData'; // Ensure correct import path
 import './editprojects.css'; // Ensure the CSS file exists
+import { ProjectT, TaskT } from '../../../../utils/types';
 
 const { TextArea } = Input;
 
-const EditProject: React.FC = () => {
+type Props = {
+  data: ProjectT | TaskT | null
+}
+
+const EditProject: React.FC<Props> = ({ data }) => {
   const { id } = useParams<{ id: string }>(); // Get project ID from the URL
   const [projectDataState, setProjectDataState] = useState<any>(null); // State to store project data
 
@@ -35,7 +40,6 @@ const EditProject: React.FC = () => {
 
   return (
     <div className="edit-project-container">
-      <h3>Edit Project</h3>
       {projectDataState ? (
         <Form layout="vertical" className="edit-project-form">
           <Form.Item label="Project Title">

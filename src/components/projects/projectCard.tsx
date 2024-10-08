@@ -1,38 +1,31 @@
 import React from 'react';
 import { Card, Avatar, Tag, Tooltip } from 'antd';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import { EditOutlined, IssuesCloseOutlined, CalendarOutlined } from '@ant-design/icons'; // Ant Design Icons
-import './projectCard.css'; // Your custom CSS if needed
-import { EDIT_PROJECTS } from '../../routes/RouteConstants'; // Assuming EDIT_PROJECTS is a route constant
-
-interface ProjectCardProps {
-  id: string;
-  title: string;
-  description: string;
-  dueDate: string;
-  issuesCount: number;
-  avatars: string[];
-}
+import { Link } from 'react-router-dom';
+import { EditOutlined, IssuesCloseOutlined, CalendarOutlined } from '@ant-design/icons';
+import './projectCard.css';
+import { EDIT_PROJECTS, PROJECTS } from '../../routes/RouteConstants';
+import { ProjectT } from '../../utils/types';
 
 const { Meta } = Card;
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ id, title, description, dueDate, issuesCount, avatars }) => {
+const ProjectCard: React.FC<ProjectT> = ({ id, title, description, dueDate, issuesCount, avatars }) => {
+  const formattedDueDate = typeof dueDate === 'string' ? dueDate : dueDate.toLocaleDateString();
+
   return (
     <Card
       hoverable
-      style={{ borderRadius: '10px' }} // Apply styling directly or via CSS
+      style={{ borderRadius: '10px', width: "300px" }}
       actions={[
-        <span><CalendarOutlined /> {dueDate}</span>, // Display project due date
-        <span><IssuesCloseOutlined /> {issuesCount} issues</span>, // Display issues count
+        <span><CalendarOutlined /> {formattedDueDate}</span>,
+        <span><IssuesCloseOutlined /> {issuesCount} issues</span>,
       ]}
-      extra={<Tag color="red">Offtrack</Tag>} // You can change this dynamically
+      extra={<Tag color="red">Offtrack</Tag>}
     >
       <Meta
         title={
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             {title}
-            {/* Wrap the Edit icon in a Link to navigate to Edit Project page */}
-            <Link to={`${EDIT_PROJECTS}`}>
+            <Link to={`${PROJECTS}/${id}/${EDIT_PROJECTS}`}>
               <EditOutlined />
             </Link>
           </div>
@@ -40,7 +33,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ id, title, description, dueDa
         description={
           <div>
             <p>{description}</p>
-            {/* Avatar Group */}
             <Avatar.Group maxCount={4} size="small" maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
               {avatars.map((avatar, index) => (
                 <Tooltip title={`Team Member ${index + 1}`} key={index}>

@@ -1,6 +1,22 @@
-import React from 'react';
-import { Navigate, useRoutes } from 'react-router-dom';
-import { ABOUT,CREATE_PROJECTS, ACCOUNT, CONTACT, DASHBOARD, FORGOT_PASSWORD, HOME, PROJECTS, SIGNIN, SIGNUP, SIGNUP_OTP, TASKS, NOTFOUND, EDIT_PROJECTS } from './RouteConstants';
+import React, { useEffect, useState, ReactNode } from 'react';
+import { Navigate, useParams, useRoutes } from 'react-router-dom';
+import {
+  ABOUT,
+  CREATE_PROJECTS,
+  ACCOUNT,
+  CONTACT,
+  DASHBOARD,
+  FORGOT_PASSWORD,
+  HOME,
+  PROJECTS,
+  SIGNIN,
+  SIGNUP,
+  SIGNUP_OTP,
+  TASKS,
+  NOTFOUND,
+  EDIT_PROJECTS,
+  EDIT_TASKS
+} from './RouteConstants';
 import LandingPageLayout from '../Layout/LandingPageLayout/LandingPageLayout';
 import Home from '../pages/landingPage/home/Home';
 import About from '../pages/landingPage/about/About';
@@ -12,12 +28,33 @@ import SignUp from '../pages/authPage/SignUp';
 import SignIn from '../pages/authPage/SignIn';
 import Dashboard from '../pages/authPage/dashboard/Dashboard';
 import Projects from '../pages/authPage/projects/Projects';
-import CreateProjects from '../pages/authPage/projects/createProjects/CreateProjects'; // Import CreateProjects
+import CreateProjects from '../pages/authPage/projects/createProjects/CreateProjects';
 import Task from '../pages/authPage/tasks/Task';
 import Account from '../pages/authPage/account/Account';
 import EditProject from '../pages/authPage/projects/editProjects/EditProjects';
+import { projectData } from '../data/projectData';
+import { tasks } from '../data/taskData';
+import EditTask from '../pages/authPage/tasks/editTask/EditTask';
+import { ProjectT, TaskT } from '../utils/types';
 
 const Routes = () => {
+  type Props = {
+    config: TaskT[] | ProjectT[],
+    children: (data: TaskT | ProjectT | null) => ReactNode;
+  };
+
+  const FindIdConfigDetails: React.FC<Props> = ({ config, children }) => {
+    const { id } = useParams<{ id: string }>();
+    const [data, setData] = useState<TaskT | ProjectT | null>(null);
+
+    useEffect(() => {
+      const foundItem = config.find((item) => item.id.toString() === id);
+      setData(foundItem || null);
+    }, [id, config]);
+
+    return <>{children(data)}</>;
+  };
+
   return useRoutes([
     {
       path: HOME,
@@ -54,12 +91,24 @@ const Routes = () => {
           element: <CreateProjects />
         },
         {
-          path: EDIT_PROJECTS,
-          element: <EditProject />
+          path: `${PROJECTS}/:id/${EDIT_PROJECTS}`,
+          element: (
+            <FindIdConfigDetails config={projectData}>
+              {(data) => <EditProject data={data} />}
+            </FindIdConfigDetails>
+          )
         },
         {
           path: TASKS,
           element: <Task />
+        },
+        {
+          path: `${TASKS}/:id/${EDIT_TASKS}`,
+          element: (
+            <FindIdConfigDetails config={tasks}>
+              {(data) => <EditTask data={data} />}
+            </FindIdConfigDetails>
+          )
         },
         {
           path: ACCOUNT,
@@ -96,6 +145,6 @@ const Routes = () => {
       element: <NotFound />
     }
   ]);
-}
+};
 
 export default Routes;
