@@ -5,16 +5,16 @@ import PaginatedList from '../../../components/paginatedList/PaginatedList';
 import './task.css';
 
 const Task: React.FC = () => {
-  const pageSize = 4; // Keep pagination the same
+  const pageSize = 6; // Keep pagination the same
 
   return (
-    <div className="task-page" style={{ padding: '20px', background: '#f4f6f8', borderRadius: '8px' }}>
+    <div className="task-page" style={{ padding: ' 10px', background: '#f4f6f8', borderRadius: '20px' }}>
       {/* Render paginated task cards */}
       <PaginatedList
         items={tasks}
         pageSize={pageSize}
         renderItem={(task) => (
-          <div style={{ marginBottom: '15px' }}>
+          <div style={{ marginBottom: '10px' }}>
             <TaskCard key={task.id} task={task} />
           </div>
         )}
