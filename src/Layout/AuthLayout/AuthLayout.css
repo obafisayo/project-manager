@@ -6,4 +6,16 @@
   .collapse-btn {
     display: none;
   }
+}
+
+.create-project {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .create-project {
+    justify-content: flex-start;
+  }
 }/*# sourceMappingURL=AuthLayout.css.map */

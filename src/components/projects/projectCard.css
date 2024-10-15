@@ -1,1 +1,9 @@
-/*# sourceMappingURL=projectCard.css.map */
+.truncate {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 5em;
+  line-height: 1.5em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}/*# sourceMappingURL=projectCard.css.map */
