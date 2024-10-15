@@ -1,6 +1,19 @@
-.render-items {
+@import "../../styles/utils/_mixins/mixins";
+.render-items-project {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(1fr);
+    place-content: center;
+    gap: 10px;
+    
+    @include max-md {
+        grid-template-columns: 1fr;
+    }
+}
+.render-items-task {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 8px;
     justify-content: center;
     align-items: center;

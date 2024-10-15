@@ -13,6 +13,7 @@ const Task: React.FC = () => {
       <PaginatedList
         items={tasks}
         pageSize={pageSize}
+        classname={"task"}
         renderItem={(task) => <TaskCard key={task.id} task={task} />}
       />
     </div>

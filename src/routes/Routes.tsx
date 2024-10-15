@@ -32,23 +32,27 @@ import CreateProjects from '../pages/authPage/projects/createProjects/CreateProj
 import Task from '../pages/authPage/tasks/Task';
 import Account from '../pages/authPage/account/Account';
 import EditProject from '../pages/authPage/projects/editProjects/EditProjects';
-import { projectData } from '../data/projectData';
+import SignUpOtp from '../pages/authPage/SignUpOtp';
 import { tasks } from '../data/taskData';
 import EditTask from '../pages/authPage/tasks/editTask/EditTask';
-import { ProjectT, TaskT } from '../utils/types';
+import { useCreateData } from '../contexts/CreateDataContext';
 
 const Routes = () => {
-  type Props = {
-    config: TaskT[] | ProjectT[],
-    children: (data: TaskT | ProjectT | null) => ReactNode;
+  const { projectData } = useCreateData();
+  
+  type Props<T> = {
+    config: T[];
+    children: (data: T | null) => ReactNode;
   };
 
-  const FindIdConfigDetails: React.FC<Props> = ({ config, children }) => {
+  const FindIdConfigDetails = <T, >({ config, children }: Props<T>) => {
     const { id } = useParams<{ id: string }>();
-    const [data, setData] = useState<TaskT | ProjectT | null>(null);
+    const [data, setData] = useState<T | null>(null);
 
     useEffect(() => {
-      const foundItem = config.find((item) => item.id.toString() === id);
+      const foundItem = config.find((item: any) => {
+        return 'id' in item && item.id.toString() === id;
+      });
       setData(foundItem || null);
     }, [id, config]);
 
@@ -128,7 +132,7 @@ const Routes = () => {
         },
         {
           path: SIGNUP_OTP,
-          element: <SIGNUP_OTP />
+          element: <SignUpOtp />
         },
         {
           path: NOTFOUND,
