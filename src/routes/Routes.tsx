@@ -2,7 +2,6 @@ import React, { useEffect, useState, ReactNode } from 'react';
 import { Navigate, useParams, useRoutes } from 'react-router-dom';
 import {
   ABOUT,
-  CREATE_PROJECTS,
   ACCOUNT,
   CONTACT,
   DASHBOARD,
@@ -14,6 +13,7 @@ import {
   SIGNUP_OTP,
   TASKS,
   NOTFOUND,
+  CREATE_PROJECTS,
   EDIT_PROJECTS,
   EDIT_TASKS
 } from './RouteConstants';
@@ -75,7 +75,7 @@ const Routes = () => {
         {
           path: CONTACT,
           element: <Contact />
-        },
+        }
       ]
     },
     {

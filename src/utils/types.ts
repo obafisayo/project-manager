@@ -7,6 +7,7 @@ export interface Person {
 export type ConfigType = TaskT | ProjectT;
 
 export interface TaskT {
+
     id: string;
     project_id: string;
     title: string;
