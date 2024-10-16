@@ -4,7 +4,7 @@ import { tasks } from '../../../data/taskData';
 import PaginatedList from '../../../components/paginatedList/PaginatedList';
 import { Button, Dropdown, Menu } from 'antd';
 import { DownOutlined, CalendarOutlined } from '@ant-design/icons';
-import KanbanBoard from '../../../components/kanbanBoard/KanbanBoard';
+import KanbanBoard from '../../../components/kanbanBoard/Kanbanboard';
 import './task.css';
 
 const Task: React.FC = () => {

@@ -17,7 +17,7 @@ export interface TaskT {
     avatars: string[];
     creator: string;
     priority: 'low' | 'medium' | 'high';
-    status: 'Pending' | 'Completed';
+    status: 'Pending' | 'Completed' | 'In Progress';
 }
 
 export interface ProjectT {

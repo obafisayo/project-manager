@@ -1,1 +1,1 @@
-{"version":3,"sources":["taskCard.scss","taskCard.css"],"names":[],"mappings":"AAAA;EACE,WAAA;EACA,yBAAA;EACA,mBAAA;EACA,aAAA;EACA,0CAAA;EACA,mBAAA;ACCF;;ADEA;EACE,iBAAA;EACA,eAAA;ACCF;;ADEA;EACE,kBAAA;EACA,gBAAA;ACCF;;ADEA;EACE,iBAAA;ACCF","file":"taskCard.css"}
+{"version":3,"sourceRoot":"","sources":["taskCard.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE","file":"taskCard.css"}

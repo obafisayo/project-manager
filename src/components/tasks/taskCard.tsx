@@ -9,7 +9,7 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-  const formattedDueDate = typeof task.dueDate === 'string' ? task.dueDate : task.dueDate.toLocaleDateString();
+  const formattedDueDate = typeof task.dueDate === 'string' ? task.dueDate : task.dueDate.toLocaleString();
 
   return (
     <Card hoverable className="task-card">

@@ -97,4 +97,28 @@ export const tasks: TaskT[] = [
     priority: 'low',
     status: 'Completed',
   },
+  {
+    id: '9',
+    project_id: "1",
+    title: 'Refactor Codebase',
+    description: 'Improve the structure and readability of the current codebase.',
+    dueDate: '2024-02-10',
+    issuesCount: 6,
+    avatars: ['avatar11.png', 'avatar12.png'],
+    creator: 'John Doe',
+    priority: 'medium',
+    status: 'Pending',
+  },
+  {
+    id: '10',
+    project_id: "1",
+    title: 'Add Notifications Feature',
+    description: 'Implement a notification system to alert users of important updates.',
+    dueDate: '2024-03-20',
+    issuesCount: 3,
+    avatars: ['avatar13.png', 'avatar14.png'],
+    creator: 'Jane Doe',
+    priority: 'high',
+    status: 'In Progress',
+  }
 ];
