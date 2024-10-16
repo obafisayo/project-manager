@@ -1,37 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProjectCard from '../../../components/projects/projectCard';
 import './project.css';
-import { Link } from 'react-router-dom';
-import { CREATE_PROJECTS } from '../../../routes/RouteConstants';
-import { Button } from 'antd';
-import { projectData } from '../../../data/projectData';
 import PaginatedList from '../../../components/paginatedList/PaginatedList';
+import { useCreateData } from '../../../contexts/CreateDataContext';
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState(projectData);
+  const { projectData } = useCreateData();
 
   return (
     <div className="projects-container">
-      <div className="projects-header">
-        <span></span>
-        <Link to={CREATE_PROJECTS}>
-          <Button type="primary" size="large" className="create-button">
-            Create
-          </Button>
-        </Link>
-      </div>
       <PaginatedList
-        items={projects}
+        items={projectData}
         pageSize={6}
+        classname={"project"}
         renderItem={(project) => (
-          <ProjectCard
-            id={project.id}
-            title={project.title}
-            description={project.description}
-            dueDate={project.dueDate}
-            issuesCount={project.issuesCount}
-            avatars={project.avatars}
-          />
+          <ProjectCard project={project} key={project.id} />
         )}
       />
     </div>

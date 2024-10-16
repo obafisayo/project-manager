@@ -1,8 +1,5 @@
-.projects-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+.projects-container {
+  padding: 20px;
 }
 
 .pagination-container {

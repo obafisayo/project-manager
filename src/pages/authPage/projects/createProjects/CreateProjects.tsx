@@ -1,32 +1,58 @@
 import React from 'react';
 import { Form, Input, DatePicker, Select, Checkbox, Button, Row, Col } from 'antd';
-import './createprojects.css'; // Import the compiled CSS file
+import './createprojects.css';
+import { useNavigate } from 'react-router-dom';
+import { PROJECTS } from '../../../../routes/RouteConstants';
+import { useCreateData } from '../../../../contexts/CreateDataContext';
+import moment from 'moment';
 
 const { TextArea } = Input;
 const { Option } = Select;
 
-const CreateProjects: React.FC = () => {
+const CreateProjects = () => {
+  const { setProjectData } = useCreateData();
+
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const handleCreate = () => {
     form.validateFields().then((values) => {
-      console.log('Form Values:', values);
-      // Handle form submission (e.g., send data to API)
+      const newProject = {
+        id: (Math.floor(Math.random() * 10000)).toString(),
+        title: values.title,
+        description: values.description,
+        startDate: moment(values.startDate.format("YYYY-MM-DD")),
+        dueDate: moment(values.dueDate.format("YYYY-MM-DD")),
+        roles: values.roles,
+        type: values.type,
+        issuesCount: 0,
+        avatars: [],
+      };
+
+      setProjectData((prevData: any) => {
+        const newdata = [...prevData, newProject]
+        console.log(newdata)
+        return newdata;
+      });
+      form.resetFields();
+      navigate(PROJECTS);
     }).catch((errorInfo) => {
       console.log('Validation Failed:', errorInfo);
     });
   };
 
+  const handleDelete = () => {
+    form.resetFields();
+    navigate(PROJECTS);
+  }
+
   return (
     <div className="create-project-container">
-      <h3 className="breadcrumb">Projects / Create Project</h3>
-
       <Form form={form} layout="vertical" className="create-project-form">
-        {/* Four Columns in One Row */}
         <Row gutter={16}>
           <Col xs={24} sm={12} md={6}>
             <Form.Item
-              name="projectTitle"
+              name="title"
               label="Project Title"
               rules={[{ required: true, message: 'Please enter the project title' }]}
             >
@@ -35,7 +61,7 @@ const CreateProjects: React.FC = () => {
           </Col>
           <Col xs={24} sm={12} md={6}>
             <Form.Item
-              name="projectType"
+              name="type"
               label="Project Type"
               rules={[{ required: true, message: 'Please enter the project type' }]}
             >
@@ -53,8 +79,8 @@ const CreateProjects: React.FC = () => {
           </Col>
           <Col xs={24} sm={12} md={6}>
             <Form.Item
-              name="endDate"
-              label="End Date"
+              name="dueDate"
+              label="Due Date"
               rules={[{ required: true, message: 'Please select the end date' }]}
             >
               <DatePicker style={{ width: '100%' }} placeholder="DD/MM/YYYY" />
@@ -62,7 +88,6 @@ const CreateProjects: React.FC = () => {
           </Col>
         </Row>
 
-        {/* Project Description */}
         <Form.Item
           name="description"
           label="Project Description"
@@ -71,15 +96,14 @@ const CreateProjects: React.FC = () => {
           <TextArea rows={4} placeholder="Enter project description" />
         </Form.Item>
 
-        {/* Project Roles - Wrapped in a Box */}
         <div className="roles-box">
-          <h4>Project Roles</h4>
           <Form.Item
-            name="projectRoles"
+            name="roles"
+            label="Project Roles"
             rules={[{ required: true, message: 'Please select the project role' }]}
           >
-            <Select placeholder="Select project role" defaultValue="Team Lead">
-              <Option value="teamLead">Team Lead</Option>
+            <Select placeholder="Select project role">
+              <Option value="team Lead">Team Lead</Option>
               <Option value="developer">Developer</Option>
               <Option value="designer">Designer</Option>
             </Select>
@@ -94,18 +118,16 @@ const CreateProjects: React.FC = () => {
                 <Col>
                   <Checkbox value="John_Developer">John <span className="role-label">Developer</span></Checkbox>
                 </Col>
-                {/* Add more checkboxes as needed */}
               </Row>
             </Checkbox.Group>
           </div>
         </div>
 
-        {/* Create and Delete Buttons */}
         <div className="form-buttons">
           <Button type="primary" onClick={handleCreate} className="create-btn">
             Create
           </Button>
-          <Button type="default" className="delete-btn">
+          <Button type="default" onClick={handleDelete} className="delete-btn">
             Delete
           </Button>
         </div>

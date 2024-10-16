@@ -9,3 +9,13 @@
         display: none;
     }
 }
+
+.create-project {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @include max-sm {
+        justify-content: flex-start;
+    }
+}

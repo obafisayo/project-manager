@@ -1,67 +1,13 @@
-// // src/components/projects/ProjectCard.scss
-// @import '../../styles/base/_variables/variables';
-// @import '../../styles/utils/_mixins/mixins';
-
-
-// .project-card {
-//   background-color: $brand-white;
-//   padding: 1.5rem;
-//   margin: 1rem;
-//   border-radius: 10px;
-//   box-shadow: $box-shadow-light;
-//   border: 1px solid $border-color;
-//   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-//   &:hover {
-//     transform: translateY(-5px);
-//     box-shadow: $box-shadow-hover;
-//   }
-
-//   .project-card-header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-
-//     h3 {
-//       font-size: 1.4rem;
-//       font-weight: bold;
-//       margin-bottom: 0.5rem;
-//       color: $brand-black;
-//     }
-
-//     span {
-//       font-size: 0.9rem;
-//       color: $text-muted;
-//     }
-//   }
-
-//   .project-description {
-//     margin: 1rem 0;
-//     font-size: 1rem;
-//     color: $text-color;
-//   }
-
-//   .project-details {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-
-//     .avatars {
-//       display: flex;
-
-//       img {
-//         width: 30px;
-//         height: 30px;
-//         border-radius: 50%;
-//         margin-right: 0.5rem;
-//         border: 2px solid $avatar-border;
-//         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-//       }
-//     }
-
-//     span {
-//       font-size: 0.9rem;
-//       color: $brand-black;
-//     }
-//   }
+// .truncate {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
 // }
+.truncate {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 5em;
+    line-height: 1.5em;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }

@@ -1,6 +1,10 @@
+import { Moment } from "moment";
+
 export interface Person {
     name: string;
 }
+
+export type ConfigType = TaskT | ProjectT;
 
 export interface TaskT {
 
@@ -20,7 +24,10 @@ export interface ProjectT {
     id: string;
     title: string;
     description: string;
-    dueDate: string | Date;
+    startDate: string | Date;
+    dueDate: Moment;
+    roles?: string;
+    type?: string;
     issuesCount: number;
-    avatars: string[];
+    avatars?: string[];
 }

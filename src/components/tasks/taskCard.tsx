@@ -29,7 +29,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
           <Button icon={<ClockCircleOutlined />} type="text">{formattedDueDate}</Button>
         </Col>
         <Col>
-          <Avatar.Group maxCount={4} size="small">
+          <Avatar.Group size="small">
             {task.avatars.map((avatar, index) => (
               <Avatar key={index} src={avatar} />
             ))}
