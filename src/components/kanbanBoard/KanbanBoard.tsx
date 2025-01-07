@@ -18,7 +18,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({ tasks }) => {
   const renderTaskCard = (task: TaskT) => (
     <Card key={task.id} className="kanban-task-card">
       <div className="task-header">
-        <h4>{task.title}</h4>
+        <h4 className="">{task.title}</h4>
         <div className="task-details">
           <ClockCircleOutlined /> {typeof task.dueDate === 'string' ? task.dueDate : task.dueDate.toLocaleDateString()} Days
         </div>
